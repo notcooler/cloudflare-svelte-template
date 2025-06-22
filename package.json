@@ -1,0 +1,48 @@
+{
+	"name": "cloudflare-svelte-template",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "bun run build && wrangler dev",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:studio": "drizzle-kit studio",
+		"test:unit": "vitest",
+		"test": "bun run test:unit -- --run",
+		"deploy": "bun run build && wrangler deploy",
+		"cf-typegen": "wrangler types ./src/worker-configuration.d.ts"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^6.0.1",
+		"@sveltejs/adapter-cloudflare": "^7.0.4",
+		"@sveltejs/kit": "^2.22.0",
+		"@sveltejs/vite-plugin-svelte": "^5.1.0",
+		"@tailwindcss/typography": "^0.5.16",
+		"@tailwindcss/vite": "^4.1.10",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/svelte": "^5.2.8",
+		"@types/node": "^22.15.32",
+		"drizzle-kit": "^0.30.6",
+		"jsdom": "^26.1.0",
+		"mdsvex": "^0.12.6",
+		"svelte": "^5.34.7",
+		"svelte-check": "^4.2.2",
+		"tailwindcss": "^4.1.10",
+		"typescript": "^5.8.3",
+		"vite": "^6.3.5",
+		"vitest": "^3.2.4",
+		"wrangler": "^4.20.5"
+	},
+	"dependencies": {
+		"@auth/drizzle-adapter": "^1.10.0",
+		"@auth/sveltekit": "^1.10.0",
+		"@neondatabase/serverless": "^0.10.4",
+		"drizzle-orm": "^0.40.1"
+	}
+}
